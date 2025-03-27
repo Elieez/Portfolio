@@ -105,7 +105,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 layoutId={`image-${layoutId}`}
               />
               <h3 className="font-bold mt-4 text-2xl">{project.title}</h3>
-              <p className="mt-2">{project.description}</p>
+              <p className="mt-2">
+                {project.longDescription ? project.longDescription : project.description}
+              </p>
 
               {/* Tech details in expanded view */}
               {project.tech && (

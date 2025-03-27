@@ -2,6 +2,7 @@ export interface Project {
     id: string;
     title: string;
     description: string;
+    longDescription?: string;
     image: string;
     github?: string;
     website?: string;
@@ -21,8 +22,8 @@ export interface Project {
     {
       id: "2",
       title: "AZDOI",
-      description:
-        "AZDOI is a NuGet package developed during my internship at WCOM. It streamlines the process of generating markdown documentation and visual representations for Azure DevOps organization, making it easier to integrate and report on DevOps data.",
+      description:"AZDOI is a NuGet package developed during my internship at WCOM. It streamlines the process of generating markdown documentation and visual representations for Azure DevOps organization, making it easier to integrate and report on DevOps data.",
+      longDescription: "This is a sample long description for the project.",
       image: "/images/AZDOI.PNG",
       github: "https://github.com/WCOMAB/AZDOI",
       nuget: "https://www.nuget.org/packages/AZDOI",
