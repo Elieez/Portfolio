@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -13,6 +13,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   
   // Use a layoutId for shared layout animations.
   const layoutId = `card-${project.id || project.title}`;
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsExpanded(false);
+      }
+    };
+
+    if (isExpanded) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+    }, [isExpanded]);
 
   return (
     <>
