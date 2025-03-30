@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
-import { Project } from "@/data/projects";
-import ProjectCard from "@/components/ProjectCard"; // Adjust path as needed
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Projects() {
   return (
@@ -16,8 +15,8 @@ export default function Projects() {
         viewport={{ margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        {projects.map((project: Project, index: number) => (
-          <ProjectCard key={index} project={project} />
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </motion.div>
     </section>
