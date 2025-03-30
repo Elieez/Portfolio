@@ -2,7 +2,14 @@
 
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
-import ProjectCard from "@/components/ProjectCard";
+import { Project } from "@/data/projects";
+
+import dynamic from "next/dynamic";
+// Import ProjectCard dynamically
+const ProjectCard = dynamic(
+  () => import("@/components/ProjectCard"),
+  { loading: () => <div>Loading...</div> }
+);
 
 export default function Projects() {
   return (
@@ -15,7 +22,7 @@ export default function Projects() {
         viewport={{ margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        {projects.map((project) => (
+        {projects.map((project: Project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Project } from "@/data/projects";
@@ -93,10 +94,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.nuget} 
               target="_blank" 
               rel="noopener noreferrer">
-                <img
+                <Image
                   src="/images/nuget_128.png"
                   alt="NuGet"
-                  className="project-nuget-logo inline-block h-6"
+                  width={20}
+                  height={20}
+                  className="project-nuget-logo inline-block"
                 />
                 NuGet
               </a>
@@ -170,11 +173,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   href={project.nuget} 
                   target="_blank" 
                   rel="noopener noreferrer">
-                    <img
-                      src="/images/nuget_128.png"
-                      alt="NuGet"
-                      className="project-nuget-logo inline-block"
-                    />
+                    <Image
+                    src="/images/nuget_128.png"
+                    alt="NuGet"
+                    width={20}
+                    height={20}
+                    className="project-nuget-logo inline-block"
+                  />
                     NuGet
                   </a>
                 )}
