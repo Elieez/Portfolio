@@ -13,7 +13,7 @@ export default function Projects() {
         className="projects-grid"
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ margin: "-100px", once: true }}
+        viewport={{ margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {projects.map((project: Project, index: number) => (
