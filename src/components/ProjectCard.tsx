@@ -46,12 +46,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           whileHover={{ scale: 1.02, boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)" }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="project-image w-full object-cover"
-            layoutId={`image-${layoutId}`}
-          />
+          <motion.div layoutId={`image-${layoutId}`} className="w-full">
+            <Image
+              src={project.image}
+              alt={project.title}
+              className="project-image w-full object-cover"
+              width={400} 
+              height={300}  
+            />
+          </motion.div>
           <h3 className="font-bold mt-2 text-xl">{project.title}</h3>
           <p>{project.description}</p>
           
@@ -124,12 +127,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               layoutId={layoutId}
               onClick={(e) => e.stopPropagation()} 
             >
-              <motion.img
+              <motion.div layoutId={`image-${layoutId}`} className="w-full">
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full object-cover rounded-lg"
-                layoutId={`image-${layoutId}`}
+                width={400}
+                height={300}
               />
+              </motion.div>
               <h3 className="font-bold mt-4 text-2xl">{project.title}</h3>
               <p className="mt-2 text-base">
                 {project.longDescription 
