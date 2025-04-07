@@ -12,7 +12,6 @@
 }
 
 body {
-  background: url('/images/dmitry-voronov-ar9jizD0V88-unsplash.jpg') center/cover no-repeat;
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
