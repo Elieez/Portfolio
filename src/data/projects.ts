@@ -23,7 +23,7 @@ export interface Project {
       These files serve as a comprehensive source for building a static website.
       Future updates may expand documentation to cover work items, pipelines, and release definitions.`,
       
-      image: "/images/AZDOI.PNG",
+      image: "/images/AZDOIimg.PNG",
       github: "https://github.com/WCOMAB/AZDOI",
       nuget: "https://www.nuget.org/packages/AZDOI",
       tech: ["C#", ".NET", "Azure DevOps", "NuGet"],
