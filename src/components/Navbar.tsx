@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,15 +42,15 @@ export default function Navbar() {
           <span></span>
         </label>
         <div className={`nav-links ${isOpen ? "active" : ""}`}>
-          <a href="#projects" onClick={() => setIsOpen(false)}>
+          <Link href="/#projects" onClick={() => setIsOpen(false)}>
             Projects
-          </a>
-          <a href="#about" onClick={() => setIsOpen(false)}>
+          </Link>
+          <Link href="/#about" onClick={() => setIsOpen(false)}>
             About
-          </a>
-          <a href="#contact" onClick={() => setIsOpen(false)}>
+          </Link>
+          <Link href="/#contact" onClick={() => setIsOpen(false)}>
             Contact
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
