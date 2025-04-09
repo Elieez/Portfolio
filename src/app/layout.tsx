@@ -41,8 +41,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover object-center -z-10"
           />
-            <Navbar />
-          <main className="relative z-10">{children}</main>
+          <Navbar />
+          <main>{children}</main>
         </div>
     </body>
     </html>
