@@ -19,20 +19,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsExpanded(false);
-      }  
+      }
+    };
+
+    const handleScroll = () => {
+      setIsExpanded(false);
     };
 
     if (isExpanded) {
-      document.body.style.overflow = "hidden"; 
       document.addEventListener("keydown", handleKeyDown);
-    }
-    else {
-      document.body.style.overflow = "auto"; 
+      window.addEventListener("scroll", handleScroll);
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "auto"; 
+      window.removeEventListener("scroll", handleScroll); 
     };
     }, [isExpanded]);
 
