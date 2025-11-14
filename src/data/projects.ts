@@ -5,6 +5,8 @@ export interface Project {
     longDescription?: string;
     image: string;
     github?: string;
+    githubBackend?: string;
+    githubFrontend?: string;
     website?: string;
     nuget?: string;
     tech?: string[];
@@ -28,4 +30,27 @@ export interface Project {
       nuget: "https://www.nuget.org/packages/AZDOI",
       tech: ["C#", ".NET", "Azure DevOps", "NuGet"],
     },
+    {
+      id: "2",
+      title: "AktieKoll",
+      description: "AktieKoll — a C#/.NET system that fetches, stores and analyzes swedish insider trades, paired with a Next.js frontend for interactive exploration.",
+
+      longDescription: `AktieKoll is a focused C#/.NET application for monitoring and analyzing insider transactions in public companies.
+      The backend fetches and processes insider trading data on a scheduled basis through GitHub Actions, stores it in a structured database, and exposes an API for consumption.
+      A separate Next.js frontend built with TypeScript provides fast searching, visualizations, and filtering to explore market activity.
+      The project includes unit and integration tests as well as CI workflows to ensure reliability as the system evolves.`,
+      
+      image: "/images/aktiekoll3.png",
+      githubBackend: "https://github.com/Elieez/AktieKoll",
+      githubFrontend: "https://github.com/Elieez/aktiekollwebb",
+      tech: [
+        "C#",
+        ".NET",
+        "PostgreSQL",
+        "Next.js",
+        "TypeScript",
+        "GitHub Actions",
+        "xUnit"
+      ]
+    }
   ];
