@@ -38,7 +38,7 @@ export interface Project {
       longDescription: `AktieKoll is a focused C#/.NET application for monitoring and analyzing insider transactions in public companies.
       The backend fetches and processes insider trading data on a scheduled basis through GitHub Actions, stores it in a structured database, and exposes an API for consumption.
       A separate Next.js frontend built with TypeScript provides fast searching, visualizations, and filtering to explore market activity.
-      The project includes unit and integration tests as well as CI workflows to ensure reliability as the system evolves.`,
+      The project includes unit and integration tests as well as CI workflows to ensure reliability as the system evolves.`, 
       
       image: "/images/aktiekoll3.png",
       githubBackend: "https://github.com/Elieez/AktieKoll",
