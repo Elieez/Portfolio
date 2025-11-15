@@ -84,6 +84,24 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <i className="fab fa-github"></i> GitHub
               </a>
             )}
+            {project.githubBackend && (
+              <a 
+              href={project.githubBackend}
+              target="_blank" 
+              rel="noopener noreferrer"
+              >
+                <i className="fab fa-github"></i> Backend
+              </a>
+            )}
+            {project.githubFrontend && (
+              <a 
+              href={project.githubFrontend}
+              target="_blank" 
+              rel="noopener noreferrer"
+              >
+                <i className="fab fa-github"></i> Frontend
+              </a>
+            )}
             {project.website && (
               <a 
               href={project.website} 
@@ -165,6 +183,24 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   rel="noopener noreferrer"
                   >
                     <i className="fab fa-github"></i> GitHub
+                  </a>
+                )}
+                {project.githubBackend && (
+                  <a 
+                  href={project.githubBackend} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  >
+                    <i className="fab fa-github"></i> Backend
+                  </a>
+                )}
+                {project.githubFrontend && (
+                  <a 
+                  href={project.githubFrontend} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  >
+                    <i className="fab fa-github"></i> Frontend
                   </a>
                 )}
                 {project.website && (
