@@ -1,6 +1,8 @@
 import "./globals.css";
 import { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
+
 export const metadata = {
   title: "Elie Bou Absi - System Developer",
   description:
@@ -36,10 +38,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         <div className="relative min-h-screen w-full">
-          <img
+          <Image
             src="/images/dmitry-voronov-ar9jizD0V88-unsplash.jpg"
             alt="Background"
-            className="absolute inset-0 w-full h-full object-cover object-center -z-10"
+            fill
+            className="object-cover object-center -z-10"
+            priority
+            quality={85}
           />
           <Navbar />
           <main>{children}</main>
