@@ -22,20 +22,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       }
     };
 
-    const handleScroll = () => {
-      setIsExpanded(false);
-    };
-
     if (isExpanded) {
+      document.body.style.overflow = "hidden";
       document.addEventListener("keydown", handleKeyDown);
-      window.addEventListener("scroll", handleScroll);
+    } else {
+      document.body.style.overflow = "";
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("scroll", handleScroll); 
+      document.body.style.overflow = "";
     };
-    }, [isExpanded]);
+  }, [isExpanded]);
 
   return (
     <>
@@ -142,10 +140,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             onClick={toggleExpand}
           >
             <motion.div
-              className="bg-card-bg rounded-lg p-8 overflow-auto max-w-2xl w-full mx-4"
+              className="relative bg-card-bg rounded-lg p-8 max-h-[90vh] overflow-y-auto max-w-2xl w-full mx-4"
               layoutId={layoutId}
-              onClick={(e) => e.stopPropagation()} 
+              onClick={(e) => e.stopPropagation()}
             >
+              <button
+                onClick={toggleExpand}
+                aria-label="Close"
+                className="absolute top-3 right-4 text-2xl text-white/60 hover:text-white leading-none cursor-pointer"
+              >
+                ×
+              </button>
               <motion.div layoutId={`image-${layoutId}`} className="w-full">
               <Image
                 src={project.image}
@@ -155,10 +160,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 height={300}
               />
               </motion.div>
-              <h3 className="font-bold mt-4 text-2xl">{project.title}</h3>
-              <p className="mt-2 text-base">
-                {project.longDescription 
-                ? project.longDescription 
+              <h2 className="font-bold mt-4 text-2xl">{project.title}</h2>
+              <p className="mt-2 text-lg leading-relaxed">
+                {project.longDescription
+                ? project.longDescription
                 : project.description}
               </p>
 
