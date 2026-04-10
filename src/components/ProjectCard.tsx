@@ -22,18 +22,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       }
     };
 
-    const handleScroll = () => {
-      setIsExpanded(false);
-    };
-
     if (isExpanded) {
       document.addEventListener("keydown", handleKeyDown);
-      window.addEventListener("scroll", handleScroll);
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("scroll", handleScroll); 
     };
     }, [isExpanded]);
 
@@ -51,7 +45,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <Image
               src={project.image}
               alt={project.title}
-              className="project-image w-full object-cover"
+              className="project-image w-full"
               width={400} 
               height={300}  
             />
@@ -142,11 +136,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             onClick={toggleExpand}
           >
             <motion.div
-              className="bg-card-bg rounded-lg p-8 overflow-auto max-w-2xl w-full mx-4"
+              className="bg-[#16161a]/30 backdrop-blur-md rounded-lg pt-4 px-8 pb-8 overflow-y-auto max-h-[85vh] max-w-4xl w-full mx-4"
               layoutId={layoutId}
-              onClick={(e) => e.stopPropagation()} 
+              onClick={(e) => e.stopPropagation()}
             >
-              <motion.div layoutId={`image-${layoutId}`} className="w-full">
+              <motion.div layoutId={`image-${layoutId}`} className="w-full max-w-xl mx-auto">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -155,12 +149,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 height={300}
               />
               </motion.div>
-              <h3 className="font-bold mt-4 text-2xl">{project.title}</h3>
-              <p className="mt-2 text-base">
-                {project.longDescription 
-                ? project.longDescription 
-                : project.description}
-              </p>
+              <h3 className="font-bold mt-4 text-3xl text-white">{project.title}</h3>
+              <div className="mt-3 text-lg leading-relaxed text-white/90 space-y-3">
+                {(project.longDescription ?? project.description)
+                  .split("\n\n")
+                  .map((para, i) => (
+                    <p key={i}>{para.trim()}</p>
+                  ))}
+              </div>
 
               {project.tech && (
                 <div className="project-tech mt-4">
