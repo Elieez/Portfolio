@@ -140,7 +140,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             onClick={toggleExpand}
           >
             <motion.div
-              className="relative bg-card-bg rounded-lg p-8 max-h-[90vh] overflow-y-auto max-w-2xl w-full mx-4"
+              className="relative bg-card-bg rounded-lg p-8 max-w-4xl w-full mx-4 flex flex-col md:flex-row gap-6"
               layoutId={layoutId}
               onClick={(e) => e.stopPropagation()}
             >
@@ -151,86 +151,88 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               >
                 ×
               </button>
-              <motion.div layoutId={`image-${layoutId}`} className="w-full">
-              <Image
-                src={project.image}
-                alt={project.title}
-                className="w-full object-cover rounded-lg"
-                width={400}
-                height={300}
-              />
+              <motion.div layoutId={`image-${layoutId}`} className="md:w-5/12 shrink-0">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full object-cover rounded-lg"
+                  width={400}
+                  height={300}
+                />
               </motion.div>
-              <h2 className="font-bold mt-4 text-2xl">{project.title}</h2>
-              <p className="mt-2 text-lg leading-relaxed">
-                {project.longDescription
-                ? project.longDescription
-                : project.description}
-              </p>
+              <div className="flex-1 flex flex-col">
+                <h2 className="font-bold text-2xl">{project.title}</h2>
+                <p className="mt-2 text-lg leading-relaxed">
+                  {project.longDescription
+                  ? project.longDescription
+                  : project.description}
+                </p>
 
-              {project.tech && (
-                <div className="project-tech mt-4">
-                  {project.tech.map((tech, i) => (
-                    <span 
-                    className="tech-item mr-1"
-                    key={i}
+                {project.tech && (
+                  <div className="project-tech mt-4">
+                    {project.tech.map((tech, i) => (
+                      <span
+                      className="tech-item mr-1"
+                      key={i}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="project-links mt-4">
+                  {project.github && (
+                    <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      <i className="fab fa-github"></i> GitHub
+                    </a>
+                  )}
+                  {project.githubBackend && (
+                    <a
+                    href={project.githubBackend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-github"></i> Backend
+                    </a>
+                  )}
+                  {project.githubFrontend && (
+                    <a
+                    href={project.githubFrontend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-github"></i> Frontend
+                    </a>
+                  )}
+                  {project.website && (
+                    <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                      <i className="fas fa-external-link-alt"></i> Website
+                    </a>
+                  )}
+                  {project.nuget && (
+                    <a
+                    href={project.nuget}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                      <Image
+                      src="/images/nuget_128.png"
+                      alt="NuGet"
+                      width={20}
+                      height={20}
+                      className="project-nuget-logo inline-block"
+                    />
+                      NuGet
+                    </a>
+                  )}
                 </div>
-              )}
-
-              <div className="project-links mt-4">
-                {project.github && (
-                  <a 
-                  href={project.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-github"></i> GitHub
-                  </a>
-                )}
-                {project.githubBackend && (
-                  <a 
-                  href={project.githubBackend} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-github"></i> Backend
-                  </a>
-                )}
-                {project.githubFrontend && (
-                  <a 
-                  href={project.githubFrontend} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-github"></i> Frontend
-                  </a>
-                )}
-                {project.website && (
-                  <a 
-                  href={project.website} 
-                  target="_blank" 
-                  rel="noopener noreferrer">
-                    <i className="fas fa-external-link-alt"></i> Website
-                  </a>
-                )}
-                {project.nuget && (
-                  <a 
-                  href={project.nuget} 
-                  target="_blank" 
-                  rel="noopener noreferrer">
-                    <Image
-                    src="/images/nuget_128.png"
-                    alt="NuGet"
-                    width={20}
-                    height={20}
-                    className="project-nuget-logo inline-block"
-                  />
-                    NuGet
-                  </a>
-                )}
               </div>
             </motion.div>
           </motion.div>
