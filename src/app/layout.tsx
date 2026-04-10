@@ -2,11 +2,30 @@ import "./globals.css";
 import { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL("https://elieez.dev"),
   title: "Elie Bou Absi - System Developer",
   description:
     "Portfolio of Elie Bou Absi, a system developer focused on building scalable digital solutions.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://elieez.dev",
+    title: "Elie Bou Absi - System Developer",
+    description:
+      "Portfolio of Elie Bou Absi, a system developer focused on building scalable digital solutions.",
+    siteName: "Elie Bou Absi Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elie Bou Absi - System Developer",
+    description:
+      "Portfolio of Elie Bou Absi, a system developer focused on building scalable digital solutions.",
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' },
@@ -23,6 +42,20 @@ export const metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Elie Bou Absi",
+  url: "https://elieez.dev",
+  jobTitle: "System Developer",
+  description:
+    "System development student in Gothenburg specialising in C# and system architecture, building scalable digital solutions.",
+  sameAs: [
+    "https://github.com/Elieez",
+    "https://www.linkedin.com/in/elie-bou-absi-5b722123a/",
+  ],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -35,6 +68,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,700&display=swap"
           rel="stylesheet"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body>
         <div className="relative min-h-screen w-full">
@@ -42,6 +79,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             src="/images/dmitry-voronov-ar9jizD0V88-unsplash.jpg"
             alt="Background"
             fill
+            sizes="100vw"
             className="object-cover object-center -z-10"
             priority
             quality={85}
