@@ -33,12 +33,14 @@ export interface Project {
     {
       id: "2",
       title: "AktieKoll",
-      description: "AktieKoll — a C#/.NET system that fetches, stores and analyzes swedish insider trades, paired with a Next.js frontend for interactive exploration.",
-
-      longDescription: `AktieKoll is a focused C#/.NET application for monitoring and analyzing insider transactions in public companies.
-      The backend fetches and processes insider trading data on a scheduled basis through GitHub Actions, stores it in a structured database, and exposes an API for consumption.
-      A separate Next.js frontend built with TypeScript provides fast searching, visualizations, and filtering to explore market activity.
-      The project includes unit and integration tests as well as CI workflows to ensure reliability as the system evolves.`, 
+      description: "AktieKoll is a full-stack system for tracking Swedish insider trades — a .NET 10 REST API with automated data pipelines, real-time email and Discord alerts, and a Next.js frontend with live stock charts and a personal follow system.",
+      longDescription: `AktieKoll is a full-stack application for monitoring Swedish insider trading data sourced directly from Finansinspektionen.
+      The .NET 10 backend runs a 6-hour GitHub Actions pipeline that fetches the latest trade CSV, resolves each transaction to a stock ticker and ISIN via a local PostgreSQL company table, persists new records idempotently, and dispatches alerts to users who follow those companies.
+      Authentication covers JWT access tokens with HTTP-only refresh cookies, Google OAuth, email verification, password reset, account lockout after failed attempts, and GDPR-compliant two-step account deletion.
+      Users can follow up to 3 companies and receive trade alerts via HTML email or Discord webhooks, with independent per-user toggles for each channel.
+      The backend follows Clean Architecture — split into the main API, a trade-fetching cron app, a monthly company-sync job, and a test suite using xUnit, Moq, FluentAssertions, and Verify.
+      The Next.js 16 frontend delivers a paginated trade feed, company pages with 1-year price charts and buy/sell trade markers, donut charts for transaction ratios, debounced autocomplete search, and full auth flows — all served via ISR-cached API calls with dark/light mode support.
+      The project is live at aktiekoll.com.`,
       
       image: "/images/aktiekoll3.png",
       githubBackend: "https://github.com/Elieez/AktieKoll",
