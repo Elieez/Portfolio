@@ -33,14 +33,20 @@ export interface Project {
     {
       id: "2",
       title: "AktieKoll",
-      description: "AktieKoll — a C#/.NET system that fetches, stores and analyzes swedish insider trades, paired with a Next.js frontend for interactive exploration.",
+      description: "AktieKoll is a full-stack system for tracking Swedish insider trades — a .NET 10 REST API with automated data pipelines, real-time email and Discord alerts, and a Next.js frontend with live stock charts and a personal follow system.",
+      longDescription: `AktieKoll is a full-stack app for tracking Swedish insider trades, sourced directly from Finansinspektionen.
 
-      longDescription: `AktieKoll is a focused C#/.NET application for monitoring and analyzing insider transactions in public companies.
-      The backend fetches and processes insider trading data on a scheduled basis through GitHub Actions, stores it in a structured database, and exposes an API for consumption.
-      A separate Next.js frontend built with TypeScript provides fast searching, visualizations, and filtering to explore market activity.
-      The project includes unit and integration tests as well as CI workflows to ensure reliability as the system evolves.`, 
+Every 6 hours, a GitHub Actions pipeline fetches the latest trade data, matches each transaction to a stock ticker via a PostgreSQL company table, and saves any new records. Users who follow those companies are then notified automatically.
+
+Alerts are sent via HTML email or Discord webhooks. Each user can follow up to 3 companies and toggle each notification channel independently.
+
+Auth includes JWT access tokens, HTTP-only refresh cookies, Google OAuth, email verification, password reset, account lockout, and GDPR-compliant account deletion.
+
+The backend follows Clean Architecture — split into the main API, a trade-fetching cron job, a monthly company-sync job, and a test suite with xUnit, Moq, and FluentAssertions.
+
+The Next.js frontend shows a paginated trade feed, company pages with 1-year price charts, buy/sell markers, donut charts, and a debounced search — with full auth flows and dark/light mode.`, 
       
-      image: "/images/aktiekoll3.png",
+      image: "/images/Ak_preview.png",
       githubBackend: "https://github.com/Elieez/AktieKoll",
       githubFrontend: "https://github.com/Elieez/aktiekollwebb",
       tech: [
