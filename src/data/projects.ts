@@ -46,7 +46,7 @@ The backend follows Clean Architecture — split into the main API, a trade-fetc
 
 The Next.js frontend shows a paginated trade feed, company pages with 1-year price charts, buy/sell markers, donut charts, and a debounced search — with full auth flows and dark/light mode.`, 
       
-      image: "/images/Ak_preview.png",
+      image: "/images/Ak_preview.PNG",
       githubBackend: "https://github.com/Elieez/AktieKoll",
       githubFrontend: "https://github.com/Elieez/aktiekollwebb",
       tech: [

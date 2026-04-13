@@ -3,10 +3,39 @@ import { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
+const siteUrl = "https://elieez.dev";
+const siteTitle = "Elie Bou Absi - System Developer";
+const siteDescription =
+  "Portfolio of Elie Bou Absi, a systems development student in Gothenburg specialising in C#, .NET, and scalable full-stack solutions.";
+
 export const metadata = {
-  title: "Elie Bou Absi - System Developer",
-  description:
-    "Portfolio of Elie Bou Absi, a system developer focused on building scalable digital solutions.",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: siteTitle,
+    description: siteDescription,
+    siteName: "Elie Bou Absi",
+    images: [
+      {
+        url: "/images/Ak_preview.PNG",
+        width: 1200,
+        height: 630,
+        alt: "Elie Bou Absi – System Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/images/Ak_preview.PNG"],
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' },
@@ -23,6 +52,19 @@ export const metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Elie Bou Absi",
+  url: siteUrl,
+  jobTitle: "System Developer",
+  description: siteDescription,
+  sameAs: [
+    "https://github.com/Elieez",
+    "https://www.linkedin.com/in/elie-bou-absi-5b722123a/",
+  ],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -34,6 +76,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,700&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body>
