@@ -24,10 +24,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
     if (isExpanded) {
       document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
     };
     }, [isExpanded]);
 
@@ -136,11 +138,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             onClick={toggleExpand}
           >
             <motion.div
-              className="bg-[#16161a]/30 backdrop-blur-md rounded-lg pt-4 px-8 pb-8 overflow-y-auto max-h-[85vh] max-w-4xl w-full mx-4"
+              className="bg-[#16161a]/30 backdrop-blur-md rounded-lg pt-4 px-8 pb-8 overflow-y-auto max-h-[85vh] max-w-4xl w-full mx-4 md:[&::-webkit-scrollbar]:hidden"
               layoutId={layoutId}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-end mb-2">
+              <div className="flex justify-end mb-2 md:hidden">
                 <button
                   onClick={toggleExpand}
                   className="text-white/60 hover:text-white text-2xl leading-none p-1"
