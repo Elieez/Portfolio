@@ -7,9 +7,10 @@ export default function Hero() {
             System Developer <span className="highlight">Building Digital Solutions</span>
           </h1>
           <p>
-            Hi, I&apos;m Elie a 24-year-old systems development student in Gothenburg. I specialize in C# and system
-            architecture, focusing on designing scalable and efficient digital solutions. With a passion for crafting
-            robust software systems, I blend creativity and technology to bring impactful ideas to life.
+            Hi, I&apos;m Elie - a 24-year-old .NET developer based in Gothenburg. I specialize in C# and
+            fullstack development, with a focus on building clean, practical software. Most recently I built
+            AktieKoll, a Swedish insider trading tracker, and I&apos;m currently looking for my next junior or
+            trainee role.
           </p>
           <div className="social-links">
             <a 
