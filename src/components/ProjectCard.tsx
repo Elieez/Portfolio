@@ -140,6 +140,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               layoutId={layoutId}
               onClick={(e) => e.stopPropagation()}
             >
+              <div className="flex justify-end mb-2">
+                <button
+                  onClick={toggleExpand}
+                  className="text-white/60 hover:text-white text-2xl leading-none p-1"
+                  aria-label="Close"
+                >
+                  ✕
+                </button>
+              </div>
               <motion.div layoutId={`image-${layoutId}`} className="w-full max-w-xl mx-auto">
               <Image
                 src={project.image}
