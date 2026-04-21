@@ -60,8 +60,7 @@ The Next.js frontend shows a paginated trade feed, company pages with 1-year pri
         "Azure",
         "Vercel",
         "GitHub Actions",
-        "xUnit",
-        "Azure"
+        "xUnit"
       ]
     }
   ];
