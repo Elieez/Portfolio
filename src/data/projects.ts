@@ -49,6 +49,7 @@ The Next.js frontend shows a paginated trade feed, company pages with 1-year pri
       image: "/images/Ak_preview.PNG",
       githubBackend: "https://github.com/Elieez/AktieKoll",
       githubFrontend: "https://github.com/Elieez/aktiekollwebb",
+      website: "https://www.aktiekoll.com",
       tech: [
         "C#",
         ".NET",
