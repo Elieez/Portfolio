@@ -56,8 +56,12 @@ The Next.js frontend shows a paginated trade feed, company pages with 1-year pri
         "PostgreSQL",
         "Next.js",
         "TypeScript",
+        "Docker",
+        "Azure",
+        "Vercel",
         "GitHub Actions",
-        "xUnit"
+        "xUnit",
+        "Azure"
       ]
     }
   ];
